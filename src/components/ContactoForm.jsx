@@ -4,7 +4,7 @@ import { CATEGORIAS } from '../data/mockContacts'
 
 const VACIO = { nombre: '', apellido: '', telefono: '', email: '', categoria: CATEGORIAS[0], foto: '' }
 
-const inputClass = 'w-full rounded-xl border border-gray-200 bg-slate-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-violet-400'
+const inputClass = 'w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100'
 
 export default function ContactoForm({ inicial, onSubmit, onCancel }) {
   const [form, setForm] = useState({ ...VACIO, ...inicial })
@@ -30,12 +30,12 @@ export default function ContactoForm({ inicial, onSubmit, onCancel }) {
       <div className="flex flex-col items-center gap-3">
         <Avatar foto={form.foto} nombre={form.nombre} apellido={form.apellido} size="w-24 h-24 text-3xl" />
         <div className="flex gap-3">
-          <label className="cursor-pointer text-sm font-medium text-violet-600 hover:text-violet-700">
+          <label className="cursor-pointer text-sm font-semibold px-3 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100">
             Subir foto
             <input type="file" accept="image/*" onChange={handleFoto} className="hidden" />
           </label>
           {form.foto && (
-            <button type="button" onClick={() => setForm({ ...form, foto: '' })} className="text-sm text-orange-500 hover:text-orange-600">
+            <button type="button" onClick={() => setForm({ ...form, foto: '' })} className="text-sm font-semibold px-3 py-1.5 rounded-lg text-red-600 hover:bg-red-50">
               Quitar
             </button>
           )}
@@ -53,10 +53,10 @@ export default function ContactoForm({ inicial, onSubmit, onCancel }) {
       </select>
 
       <div className="flex justify-end gap-3 pt-2">
-        <button type="button" onClick={onCancel} className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700">
+        <button type="button" onClick={onCancel} className="px-4 py-2 rounded-lg border border-stone-200 hover:bg-stone-50 text-stone-700 font-semibold">
           Cancelar
         </button>
-        <button type="submit" className="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-violet-400">
+        <button type="submit" className="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-rose-300">
           Guardar
         </button>
       </div>

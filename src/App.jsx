@@ -36,9 +36,9 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Navbar onNuevo={abrirNuevo} />
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="max-w-6xl mx-auto px-4 -mt-16 pb-12">
         <ContactoList onEditar={abrirEdicion} onEliminar={setAEliminar} />
       </main>
 
@@ -47,14 +47,14 @@ function App() {
       </Modal>
 
       <Modal abierto={!!aEliminar} titulo="Eliminar contacto" onClose={() => setAEliminar(null)}>
-        <p className="text-gray-600">
-          ¿Seguro que deseas eliminar a <strong className="text-gray-800">{aEliminar?.nombre} {aEliminar?.apellido}</strong>? Esta acción no se puede deshacer.
+        <p className="text-stone-600">
+          ¿Seguro que deseas eliminar a <strong className="text-stone-900">{aEliminar?.nombre} {aEliminar?.apellido}</strong>? Esta acción no se puede deshacer.
         </p>
         <div className="flex justify-end gap-3 mt-6">
-          <button onClick={() => setAEliminar(null)} className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700">
+          <button onClick={() => setAEliminar(null)} className="px-4 py-2 rounded-lg border border-stone-200 hover:bg-stone-50 text-stone-700 font-semibold">
             Cancelar
           </button>
-          <button onClick={confirmarEliminar} className="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold">
+          <button onClick={confirmarEliminar} className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold">
             Eliminar
           </button>
         </div>
